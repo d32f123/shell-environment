@@ -29,7 +29,7 @@ setopt extendedhistory
 export VIMRUNTIME=/usr/share/vim/vim81
 
 # Set up tmux helpers
-TMUX_HOME="$HOME/.tmux"
+export TMUX_HOME="$CONFIG_DIR/tmux"
 # If acting under ssh and no tmux yet, run tmux
 [ -n "$SSH_TTY" ] && [ -z "$TMUX" ] && { tmux new; exit; }
 # If connecting to remote and currently running tmux, better disable local tmux
