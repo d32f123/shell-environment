@@ -10,7 +10,7 @@ export CONFIG_DIR="$HOME/.config"
 export ZDOTDIR="$CONFIG_DIR/zsh"
 export TMUX_HOME="$CONFIG_DIR/tmux"
 
-export ETC_DIR="${ETC_DIR:-/etc/zshenv}"
+export ETC_DIR="${ETC_DIR:-/etc}"
 echo 'export ZDOTDIR=${XDG_CONFIG_HOME:-$HOME/.config}/zsh' >tmp.zshenv
 sudo cat "$ETC_DIR/zshenv" >>tmp.zshenv || true
 sudo mv tmp.zshenv "$ETC_DIR/zshenv"
