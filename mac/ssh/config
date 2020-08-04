@@ -13,6 +13,7 @@ Host tmux.anesterov.xyz
     RemoteForward 11988 localhost:11988
 
 Match host anesterov.xyz
+    HostKeyAlias anesterov.xyz
     IdentityFile %d/.ssh/acer
     Port 2222
     SendEnv LANG LC_ALL
