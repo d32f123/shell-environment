@@ -1,0 +1,11 @@
+Host anesterov.xyz
+IdentityFile %d/.ssh/acer
+# ForwardX11 yes
+# ForwardX11Trusted yes
+Port 2222
+RequestTTY yes
+RemoteCommand tmux new
+
+# TMUX pbcopy
+RemoteForward 11988 localhost:11988
+SendEnv LANG LC_ALL
