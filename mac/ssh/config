@@ -1,11 +1,18 @@
-Host anesterov.xyz
-IdentityFile %d/.ssh/acer
-# ForwardX11 yes
-# ForwardX11Trusted yes
-Port 2222
-RequestTTY yes
-RemoteCommand tmux new
+Host x11.anesterov.xyz
+    HostName anesterov.xyz
+    HostKeyAlias anesterov.xyz
+    ForwardX11 yes
+    ForwardX11Trusted yes
 
-# TMUX pbcopy
-RemoteForward 11988 localhost:11988
-SendEnv LANG LC_ALL
+Host tmux.anesterov.xyz
+    HostName anesterov.xyz
+    HostKeyAlias anesterov.xyz
+    RemoteCommand tmux new
+    RequestTTY yes
+    # TMUX pbcopy
+    RemoteForward 11988 localhost:11988
+
+Match host anesterov.xyz
+    IdentityFile %d/.ssh/acer
+    Port 2222
+    SendEnv LANG LC_ALL
