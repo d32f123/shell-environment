@@ -14,8 +14,6 @@ Host tmux.anesterov.xyz
 
 Host git.anesterov.xyz
     IdentityFile %d/.ssh/id_rsa_git
-Host gitlab.anesterov.xyz
-    IdentityFile %d/.ssh/id_rsa_git
 
 Host *anesterov.xyz
     IdentityFile %d/.ssh/acer
