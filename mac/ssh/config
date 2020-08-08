@@ -12,8 +12,13 @@ Host tmux.anesterov.xyz
     # TMUX pbcopy
     RemoteForward 11988 localhost:11988
 
-Match host anesterov.xyz
-    HostKeyAlias anesterov.xyz
+Host git.anesterov.xyz
+    IdentityFile %d/.ssh/id_rsa_git
+Host gitlab.anesterov.xyz
+    IdentityFile %d/.ssh/id_rsa_git
+
+Host *anesterov.xyz
     IdentityFile %d/.ssh/acer
     Port 2222
     SendEnv LANG LC_ALL
+
