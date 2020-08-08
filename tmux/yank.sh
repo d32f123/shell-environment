@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 set -eu
 
@@ -11,7 +11,7 @@ buf=$(cat "$@")
 
 copy_backend_remote_tunnel_port=$(tmux show-option -gvq "@copy_backend_remote_tunnel_port")
 copy_use_osc52_fallback=$(tmux show-option -gvq "@copy_use_osc52_fallback")
-nc="$([ -n $copy_backend_remote_tunnel_port ] && nc -N localhost $copy_backend_remote_tunnel_port 2>/dev/null <<< "" && echo \"nc -N\" || echo nc)"
+nc_args="$([ -n $copy_backend_remote_tunnel_port ] && nc -N localhost $copy_backend_remote_tunnel_port 2>/dev/null <<< "" && echo \"-N localhost $copy_backend_remote_tunnel_port\" || echo \" localhost $copy_backend_remote_tunnel_port\")"
 
 # Resolve copy backend: pbcopy (OSX), reattach-to-user-namespace (OSX), xclip/xsel (Linux)
 copy_backend=""
