@@ -24,7 +24,7 @@ elif [ -n "${DISPLAY-}" ] && is_app_installed xclip; then
   copy_backend="xclip -i -f -selection primary | xclip -i -selection clipboard"
 elif [ -n "${copy_backend_remote_tunnel_port-}" ] \
     && nc localhost $copy_backend_remote_tunnel_port <<< ""; then
-  copy_backend="nc localhost $copy_backend_remote_tunnel_port"
+    copy_backend="nc localhost $(nc -N localhost $copy_backend_remote_tunnel_port 2>/dev/null <<< "" && echo '-N') $copy_backend_remote_tunnel_port"
 fi
 
 # if copy backend is resolved, copy and exit
