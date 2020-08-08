@@ -9,9 +9,7 @@ is_app_installed() {
 # get data either form stdin or from file
 buf=$(cat "$@")
 
-copy_backend_remote_tunnel_port=$(tmux show-option -gvq "@copy_backend_remote_tunnel_port")
 copy_use_osc52_fallback=$(tmux show-option -gvq "@copy_use_osc52_fallback")
-nc_args="$([ -n $copy_backend_remote_tunnel_port ] && nc -N localhost $copy_backend_remote_tunnel_port 2>/dev/null <<< "" && echo \"-N localhost $copy_backend_remote_tunnel_port\" || echo \" localhost $copy_backend_remote_tunnel_port\")"
 
 # Resolve copy backend: pbcopy (OSX), reattach-to-user-namespace (OSX), xclip/xsel (Linux)
 copy_backend=""
@@ -23,14 +21,11 @@ elif [ -n "${DISPLAY-}" ] && is_app_installed xsel; then
   copy_backend="xsel -i --clipboard"
 elif [ -n "${DISPLAY-}" ] && is_app_installed xclip; then
   copy_backend="xclip -i -f -selection primary | xclip -i -selection clipboard"
-elif [ -n "${copy_backend_remote_tunnel_port-}" ] \
-    && $nc localhost $copy_backend_remote_tunnel_port <<< ""; then
-    copy_backend="nc localhost $copy_backend_remote_tunnel_port"
 fi
 
 # if copy backend is resolved, copy and exit
 if [ -n "$copy_backend" ]; then
-  printf "%s" "$buf" | eval "$copy_backend"
+  printf "%s" "$buf" | $copy_backend
   exit;
 fi
 
