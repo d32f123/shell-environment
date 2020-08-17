@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # Required packages:
-# vim, tmux, zsh
+# vim, tmux, zsh, tree
 # Required font:
 # https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
 BASE_DIR="$(pwd)"
