@@ -46,6 +46,10 @@ tmux-ssh() {
 }
 alias ssh=tmux-ssh
 
+# Add printing aliases
+alias lp_doc="lp -o ColorModel=CMYGray -o MediaType=Plain -o OutputMode=Best"
+alias lp_photo="lp -o ColorModel=RGB -o MediaType=Photo -o OutputMode=Photo"
+
 # Enable Powerlevel10k theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
