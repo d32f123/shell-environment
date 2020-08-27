@@ -8,6 +8,11 @@ export XDG_CONFIG_HOME=$CONFIG_DIR
 export XDG_CACHE_HOME=$CACHE_DIR
 export XDG_DATA_HOME=$DATA_DIR
 
+# Set up CUPS vars
+export CUPS_CACHEDIR=$XDG_CACHE_HOME/cups
+export CUPS_DATADIR=$XDG_DATA_HOME/cups
+export CUPS_STATEDIR=$XDG_CONFIG_HOME/cups
+
 # Set up locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
