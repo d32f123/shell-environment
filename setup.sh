@@ -58,8 +58,12 @@ tmux new -d -s __noop >/dev/null 2>&1 || true
 tmux set-environment -g TMUX_PLUGIN_MANAGER_PATH "$TMUX_HOME/plugins"
 $TMUX_HOME/plugins/tpm/bin/install_plugins || true
 tmux kill-session -t __noop >/dev/null 2>&1 || true
-mv ~/.tmux/plugins ~/.config/tmux/
+mv ~/.tmux/* ~/.config/tmux/
 rmdir ~/.tmux
+
+SIDEBAR_VARIABLES="$TMUX_HOME/plugins/tmux-sidebar/scripts/variables.sh"
+mv "$SIDEBAR_VARIABLES" "$SIDEBAR_VARIABLES.bak"
+sed '/^SIDEBAR_DIR/ s/=(.*)/='"$TMUX_HOME/sidebar"'/g' "$SIDEBAR_VARIABLES.bak" >"$SIDEBAR_VARIABLES"
 
 cd "$BASE_DIR"
 
