@@ -6,7 +6,13 @@ set password "$expect_out(1,string)"
 # Test:
 # send_user "password: $password\r\n"
 # Actual:
-spawn ssh-add $HOME/.ssh/acer
+spawn ssh-add $env(HOME)/.ssh/acer
 expect "Enter passphrase"
 send "$password\n"
 expect "Identity added"
+
+spawn ssh-add $env(HOME)/.ssh/id_rsa_git
+expect "Enter passphrase"
+send "$password\n"
+expect "Identity added"
+
