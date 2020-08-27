@@ -13,6 +13,25 @@ export CUPS_CACHEDIR=$XDG_CACHE_HOME/cups
 export CUPS_DATADIR=$XDG_DATA_HOME/cups
 export CUPS_STATEDIR=$XDG_CONFIG_HOME/cups
 
+# Set up wget to use XDG
+alias wget="wget --hsts-file=$DATA_DIR/wget/wget-hsts"
+
+# Set up PSQL to use XDG
+export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
+export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
+export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
+export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
+
+# Set up mail to use XDG
+export MAILRC="$XDG_CONFIG_HOME/mail/mailrc"
+
+# Set up less history location
+export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
+
+# Set up X11
+export XAUTHORITY="$XDG_CONFIG_HOME/x11/Xauthority"
+
+
 # Set up locale
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
