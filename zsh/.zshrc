@@ -29,7 +29,6 @@ export MAILRC="$XDG_CONFIG_HOME/mail/mailrc"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 
 # Set up X11
-export XAUTHORITY="$XDG_CONFIG_HOME/x11/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 
 # Set up locale
