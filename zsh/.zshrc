@@ -49,9 +49,6 @@ SAVEHIST=1000
 setopt extendedglob
 setopt extendedhistory
 
-# Set up vim
-export VIMRUNTIME=/usr/share/vim/vim81
-
 # Set up tmux helpers
 export TMUX_HOME="$CONFIG_DIR/tmux"
 # If acting under ssh and no tmux yet, run tmux
