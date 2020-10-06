@@ -50,6 +50,7 @@ setopt extendedhistory
 
 # Set up tmux helpers
 export TMUX_HOME="$CONFIG_DIR/tmux"
+alias tmux="tmux -f $CONFIG_DIR/tmux/tmux.conf"
 # If acting under ssh and no tmux yet, run tmux
 # [ -n "$SSH_CLIENT" ] && [ -z "$TMUX" ] && { tmux new; exit; }
 # If connecting to remote and currently running tmux, better disable local tmux
