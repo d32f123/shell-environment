@@ -76,6 +76,9 @@ vidtogif() {
     ffmpeg -i "$1" -vf "fps=10,scale=1680:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize "$2"
 }
 
+# Mount VirtualBox
+alias mount_debian="mount -t smbfs //anesterov:qwerty@192.168.56.101/anesterov"
+
 # Enable Powerlevel10k theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
