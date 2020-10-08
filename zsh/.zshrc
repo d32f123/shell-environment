@@ -71,6 +71,11 @@ alias ssh=tmux-ssh
 alias lp_doc="lp -o ColorModel=CMYGray -o MediaType=Plain -o OutputMode=Best"
 alias lp_photo="lp -o ColorModel=RGB -o MediaType=Photo -o OutputMode=Photo"
 
+# Video to GIF function
+vidtogif() {
+    ffmpeg -i "$1" -vf "fps=10,scale=1680:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize "$2"
+}
+
 # Enable Powerlevel10k theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
