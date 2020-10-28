@@ -79,6 +79,9 @@ vidtogif() {
 # Mount VirtualBox
 alias mount_debian="mount -t smbfs //anesterov:qwerty@192.168.56.101/anesterov"
 
+# Convert HEIC to JPG via magick
+alias heic_to_jpg="magick mogrify -monitor -format jpg"
+
 # Enable Powerlevel10k theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
