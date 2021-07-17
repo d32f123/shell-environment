@@ -67,7 +67,7 @@ rmdir ~/.tmux
 
 SIDEBAR_VARIABLES="$TMUX_HOME/plugins/tmux-sidebar/scripts/variables.sh"
 mv "$SIDEBAR_VARIABLES" "$SIDEBAR_VARIABLES.bak"
-sed '/^SIDEBAR_DIR/ s/=(.*)/='"$TMUX_HOME/sidebar"'/g' "$SIDEBAR_VARIABLES.bak" >"$SIDEBAR_VARIABLES"
+sed '/^SIDEBAR_DIR/ s?=(.*)?='"$TMUX_HOME/sidebar"'?g' "$SIDEBAR_VARIABLES.bak" >"$SIDEBAR_VARIABLES"
 
 cd "$BASE_DIR"
 
