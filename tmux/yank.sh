@@ -51,7 +51,8 @@ if [ "$buflen" -gt "$maxlen" ]; then
 fi
 
 # build up OSC 52 ANSI escape sequence
-esc="\033]52;c;$( printf %s "$buf" | head -c $maxlen | base64 | tr -d '\r\n' )\a"
+HEAD=$(which ghead || which head)
+esc="\033]52;c;$( printf %s "$buf" | ${HEAD} -c $maxlen | base64 | tr -d '\r\n' )\a"
 esc="\033Ptmux;\033$esc\033\\"
 
 # resolve target terminal to send escape sequence
