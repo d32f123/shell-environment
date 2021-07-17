@@ -5,6 +5,7 @@
 # Required font:
 # https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
 BASE_DIR="$(pwd)"
+ROOT_ACCESS="$(which sudo | which doas)"
 
 export XDG_CONFIG_HOME=$CONFIG_DIR
 export XDG_CACHE_HOME=$CACHE_DIR
@@ -16,8 +17,8 @@ export TMUX_HOME="$CONFIG_DIR/tmux"
 
 export ETC_DIR="${ETC_DIR:-/etc}"
 echo 'export ZDOTDIR=${XDG_CONFIG_HOME:-$HOME/.config}/zsh' >tmp.zshenv
-sudo cat "$ETC_DIR/zshenv" >>tmp.zshenv || true
-sudo mv tmp.zshenv "$ETC_DIR/zshenv"
+${ROOT_ACCESS} cat "$ETC_DIR/zshenv" >>tmp.zshenv || true
+${ROOT_ACCESS} mv tmp.zshenv "$ETC_DIR/zshenv"
 
 mkdir "$CONFIG_DIR" 2>/dev/null || true
 cp -R zsh "$CONFIG_DIR/"
