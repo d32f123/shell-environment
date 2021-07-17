@@ -35,7 +35,7 @@ cd "$BASE_DIR"
 rm install.sh
 
 # oh-my-zsh will update .zshrc at ~/.zshrc, append it to .config/zsh/.zshrc
-sed -e '/ZSH_THEME/d' -i .bak ~/.zshrc
+sed -e '/ZSH_THEME/d' -i.bak ~/.zshrc
 <~/.zshrc >>$ZDOTDIR/.zshrc
 rm ~/.zshrc ~/.zshrc.bak
 
