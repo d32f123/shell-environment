@@ -7,11 +7,18 @@
 BASE_DIR="$(pwd)"
 ROOT_ACCESS="$(which sudo | which doas)"
 
-export XDG_CONFIG_HOME=$CONFIG_DIR
-export XDG_CACHE_HOME=$CACHE_DIR
-export XDG_DATA_HOME=$DATA_DIR
 
-export CONFIG_DIR="$HOME/.config"
+export CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
+export CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}"
+export DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CONFIG_HOME="$CONFIG_DIR"
+export XDG_CACHE_HOME="$CACHE_DIR"
+export XDG_DATA_HOME="$DATA_DIR"
+
+mkdir $CONFIG_DIR 2>/dev/null
+mkdir $CACHE_DIR 2>/dev/null
+mkdir -p $DATA_DIR 2>/dev/null
+
 export ZDOTDIR="$CONFIG_DIR/zsh"
 export TMUX_HOME="$CONFIG_DIR/tmux"
 
